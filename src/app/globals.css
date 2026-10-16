@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: dark; }
+html, body { background: #111014; color: #F3F1F7; }
+body { -webkit-font-smoothing: antialiased; padding-bottom: env(safe-area-inset-bottom); }
+
+@layer components {
+  .card { @apply rounded-card bg-card border border-line p-5; }
+  .btn { @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-medium transition active:scale-[0.98] disabled:opacity-50 disabled:pointer-events-none; }
+  .btn-primary { @apply btn bg-brand text-white hover:bg-brand-light hover:text-bg; }
+  .btn-ghost { @apply btn border border-line text-ink hover:bg-white/5; }
+  .btn-danger { @apply btn border border-expense/40 text-expense hover:bg-expense/10; }
+  .input { @apply w-full rounded-xl border border-line bg-bg px-3 py-2.5 text-sm text-ink placeholder:text-ink-muted focus:outline-none focus:ring-2 focus:ring-brand; }
+  .label { @apply mb-1 block text-xs text-ink-muted; }
+  .fade-in { animation: fade-in .35s ease both; }
+}
+@keyframes fade-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .fade-in { animation: none; } }
